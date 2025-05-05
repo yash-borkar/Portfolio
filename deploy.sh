@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Copy files from temporary location to S3 bucket (adjust the S3 bucket name)
-aws s3 sync /tmp/portfolio/ s3://your-bucket-name/ --delete
+BUCKET_NAME=port-45
 
-# Optional: You can also clear cache if needed
-aws s3 cp s3://your-bucket-name/ /tmp/portfolio/ --recursive
+echo "Deploying portfolio to S3..."
+aws s3 sync /home/ec2-user/portfolio/ s3://$BUCKET_NAME/ --delete
+
+echo "Deployment complete."
