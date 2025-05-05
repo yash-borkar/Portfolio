@@ -1,0 +1,10 @@
+version: 0.0
+os: linux
+files:
+  - source: / # Copy everything from source
+    destination: /tmp/portfolio/ # Temporary location
+hooks:
+  AfterInstall:
+    - location: deploy.sh
+      timeout: 180
+      runas: root
